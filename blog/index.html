@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Michael Younkin</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Raleway:400,700' rel='stylesheet'
+    type='text/css'>
+    <link href="/stylesheets/normalize-6197e73d.css" rel="stylesheet" /><link href="/stylesheets/all-ab0281c7.css" rel="stylesheet" />
+    <script src="/javascripts/all-da39a3ee.js"></script>
+  </head>
+
+  <body class="blog blog_index">
+
+    <header class="blog-header">
+  <h1>My Blog</h1>
+  <nav>
+    <ul class="list-unstyled list-horizontal-centered">
+      <li><a href="/">Home</a></li>
+      <li><a href="/resume.pdf">Resume</a></li>
+      <li><a href="https://github.com/michael-younkin">Github</a></li>
+      <li><a href="https://www.linkedin.com/in/michaelyounkin">LinkedIn</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+  <article class="blog-article">
+
+    <header>
+      <h1>
+        Rust's Atomic Memory Orderings
+      </h1>
+    </header>
+
+    <p>While working on implementing a simple regular expression compiler in rust (based on a project for a class I TA for), I found the need to use a global atomic counter variable in order to generate unique IDs. What I thought would be as simple as calling some instruction like fetch_add ended up leading me down a rabbit hole into the world of CPU memory ordering.</p>
+
+<p>You see, while Rust does provide variables accessible only with atomic operations on types in <code>std::sync::atomic</code>, all of the function calls take a value of type <code>std::sync::atomic::Ordering</code>, which tells the compiler what kind of memory order restrictions to apply. I had never heard of anything like a "memory ordering", so I went on StackOverflow and found <a href="http://stackoverflow.com/questions/30407121/which-stdsyncatomicordering-to-use">this question</a>, which at the time had been unanswered for several months.</p>
+
+<p>For some reason, it's pretty difficult to find information online on the subject. One of the best resources is <a href="http://preshing.com/">Jeff Phreshing's blog</a>. He seems to have a knack for understanding and explaining lock-free programming methods, among other things. His best explanation of the issue is <a href="http://preshing.com/20120710/memory-barriers-are-like-source-control-operations/">this post</a>, which uses source control as an analogy to explain what's going on. Another great resource is <a href="http://en.cppreference.com/w/cpp/atomic/memory_order">the documentation for C++'s atomic memory orders</a> which are similar to Rust's (likely because GCC and LLVM implement these memory orderings in a similar way).</p>
+
+<p>You can read my answer to the question <a href="http://stackoverflow.com/questions/30407121/which-stdsyncatomicordering-to-use/33293463#33293463">here</a>, in which I've tried to provide a summary of what the different orderings are and when they're useful.</p>
+
+
+  </article>
+
+
+    <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-40545008-6', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
