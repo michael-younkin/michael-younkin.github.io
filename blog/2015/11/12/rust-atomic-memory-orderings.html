@@ -7,15 +7,15 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 
     <!-- Use title if it's in the page YAML frontmatter -->
-    <title>Rust's Atomic Memory Orderings</title>
+    <title>Rust's Atomic Memory Orderings | Michael Younkin</title>
 
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Raleway:400,700' rel='stylesheet'
     type='text/css'>
-    <link href="/stylesheets/normalize-6197e73d.css" rel="stylesheet" /><link href="/stylesheets/all-ab0281c7.css" rel="stylesheet" />
+    <link href="/stylesheets/normalize-6197e73d.css" rel="stylesheet" /><link href="/stylesheets/all-809d0286.css" rel="stylesheet" />
     <script src="/javascripts/all-da39a3ee.js"></script>
   </head>
 
-  <body class="blog blog_2015 blog_2015_11 blog_2015_11_12 blog_2015_11_12_day-1">
+  <body class="blog blog_2015 blog_2015_11 blog_2015_11_12 blog_2015_11_12_rust-atomic-memory-orderings">
 
     <p>While working on implementing a simple regular expression compiler in rust (based on a project for a class I TA for), I found the need to use a global atomic counter variable in order to generate unique IDs. What I thought would be as simple as calling some instruction like fetch_add ended up leading me down a rabbit hole into the world of CPU memory ordering.</p>
 
