@@ -11,7 +11,7 @@
 
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Raleway:400,700' rel='stylesheet'
     type='text/css'>
-    <link href="/stylesheets/normalize-6197e73d.css" rel="stylesheet" /><link href="/stylesheets/all-f33c3fab.css" rel="stylesheet" />
+    <link href="/stylesheets/normalize-6197e73d.css" rel="stylesheet" /><link href="/stylesheets/all-cb637859.css" rel="stylesheet" />
     <script src="/javascripts/all-da39a3ee.js"></script>
   </head>
 
@@ -36,12 +36,12 @@
       <h1>
         Rust's Atomic Memory Orderings
       </h1>
-      <dl>
-        <dt>Publish Date</dt>
-        <dd>11/12/2015</dd>
-        <dt>Tags</dt>
-            <dd>Rust</dd>
-      </dl>
+      <span class="blog-post-metadata">
+        posted
+          in Rust
+        on
+        November 12, 2015.
+      </span>
     </header>
 
     <p>While working on implementing a simple regular expression compiler in rust (based on a project for a class I TA for), I found the need to use a global atomic counter variable in order to generate unique IDs. What I thought would be as simple as calling some instruction like fetch_add ended up leading me down a rabbit hole into the world of CPU memory ordering.</p>
