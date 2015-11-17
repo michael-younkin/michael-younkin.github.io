@@ -9,9 +9,8 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title>Blog | Michael Younkin</title>
 
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Raleway:400,700' rel='stylesheet'
-    type='text/css'>
-    <link href="/stylesheets/normalize-6197e73d.css" rel="stylesheet" /><link href="/stylesheets/all-c9ae9193.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
+    <link href="/stylesheets/normalize-6197e73d.css" rel="stylesheet" /><link href="/stylesheets/all-4f689872.css" rel="stylesheet" />
     <script src="/javascripts/all-da39a3ee.js"></script>
   </head>
 
@@ -44,7 +43,7 @@
       </span>
     </header>
 
-    <p>While working on implementing a simple regular expression compiler in rust (based on a project for a class I TA for), I found the need to use a global atomic counter variable in order to generate unique IDs. What I thought would be as simple as calling some instruction like fetch_add ended up leading me down a rabbit hole into the world of CPU memory ordering.</p>
+    <p>While working on implementing a simple regular expression compiler in rust (based on a project for a class I TA for), I found the need to use a global atomic counter variable in order to generate unique IDs. What I thought would be as simple as calling some instruction like <code>fetch_add</code> ended up leading me down a rabbit hole into the world of CPU memory ordering.</p>
 
 <p>You see, while Rust does provide variables accessible only with atomic operations on types in <code>std::sync::atomic</code>, all of the function calls take a value of type <code>std::sync::atomic::Ordering</code>, which tells the compiler what kind of memory order restrictions to apply. I had never heard of anything like a "memory ordering", so I went on StackOverflow and found <a href="http://stackoverflow.com/questions/30407121/which-stdsyncatomicordering-to-use">this question</a>, which at the time had been unanswered for several months.</p>
 
