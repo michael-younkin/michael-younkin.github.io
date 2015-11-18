@@ -10,7 +10,7 @@
     <title>Rust's Atomic Memory Orderings | Michael Younkin</title>
 
     <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
-    <link href="/stylesheets/normalize-6197e73d.css" rel="stylesheet" /><link href="/stylesheets/all-1e4bf9fb.css" rel="stylesheet" />
+    <link href="/stylesheets/normalize-6197e73d.css" rel="stylesheet" /><link href="/stylesheets/all-7a61319e.css" rel="stylesheet" />
     <script src="/javascripts/all-da39a3ee.js"></script>
   </head>
 
@@ -29,19 +29,20 @@
       </nav>
     </header>
 
+      <main class="main-column">
       <article class="blog-post">
-    <header class="blog-post-header">
+      <header class="blog-post-header">
 
-      <h1>Rust's Atomic Memory Orderings</h1>
-      <span class="blog-post-metadata">
-        posted
-          in Rust
-        on
-        November 12, 2015.
-      </span>
-    </header>
+        <h1>Rust's Atomic Memory Orderings</h1>
+        <span class="blog-post-metadata">
+          posted
+            in Rust
+          on
+          November 12, 2015.
+        </span>
+      </header>
 
-    <p>While working on implementing a simple regular expression compiler in rust (based on a project for a class I TA for), I found the need to use a global atomic counter variable in order to generate unique IDs. What I thought would be as simple as calling some instruction like <code>fetch_add</code> ended up leading me down a rabbit hole into the world of CPU memory ordering.</p>
+      <p>While working on implementing a simple regular expression compiler in rust (based on a project for a class I TA for), I found the need to use a global atomic counter variable in order to generate unique IDs. What I thought would be as simple as calling some instruction like <code>fetch_add</code> ended up leading me down a rabbit hole into the world of CPU memory ordering.</p>
 
 <p>You see, while Rust does provide variables accessible only with atomic operations on types in <code>std::sync::atomic</code>, all of the function calls take a value of type <code>std::sync::atomic::Ordering</code>, which tells the compiler what kind of memory order restrictions to apply. I had never heard of anything like a "memory ordering", so I went on StackOverflow and found <a href="http://stackoverflow.com/questions/30407121/which-stdsyncatomicordering-to-use">this question</a>, which at the time had been unanswered for several months.</p>
 
@@ -49,7 +50,8 @@
 
 <p>You can read my answer to the question <a href="http://stackoverflow.com/questions/30407121/which-stdsyncatomicordering-to-use/33293463#33293463">here</a>, in which I've tried to provide a summary of what the different orderings are and when they're useful.</p>
 
-  </article>
+    </article>
+  </main>
 
 
     <footer class="main-footer">Copyright &copy; Michael Younkin 2015</footer>
